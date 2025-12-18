@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>Green Travel – Відкривай Європу по-новому</title>
+  <style>
+    :root {
+      --green-dark: #1b5e20;
+      --green-main: #2e7d32;
+      --green-light: #a5d6a7;
+      --bg: #f1f8f4;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", sans-serif; background: var(--bg); color: #333; line-height: 1.6; }
+
+    header { background: #fff; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+    .logo { font-size: 1.4rem; font-weight: bold; color: var(--green-dark); }
+    nav a { margin: 0 12px; text-decoration: none; color: #333; font-weight: 500; }
+    nav a:hover { color: var(--green-main); }
+    .call-btn { background: var(--green-main); color: #fff; padding: 10px 16px; border-radius: 20px; text-decoration: none; transition: all 0.3s ease; }
+    .call-btn:hover { transform: scale(1.05); background: var(--green-dark); }
+
+    .hero { background: linear-gradient(rgba(27,94,32,0.65), rgba(27,94,32,0.65)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80') center/cover; color: #fff; padding: 120px 20px; text-align: center; }
+    .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+    .hero p { max-width: 700px; margin: auto; font-size: 1.1rem; }
+    .hero a { display: inline-block; margin-top: 30px; background: #fff; color: var(--green-dark); padding: 14px 28px; border-radius: 30px; font-weight: bold; text-decoration: none; transition: all 0.3s ease; }
+    .hero a:hover { transform: scale(1.05); background: var(--green-light); }
+
+    main { max-width: 1200px; margin: 80px auto; padding: 0 20px; }
+    section { margin-bottom: 90px; }
+    h2 { text-align: center; color: var(--green-dark); margin-bottom: 40px; }
+
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; text-align: center; }
+    .feature { background: #fff; padding: 25px; border-radius: 18px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); transition: transform 0.3s ease; }
+    .feature:hover { transform: translateY(-5px); }
+
+    .tours { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+    .tour { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.08); display: flex; flex-direction: column; transition: transform 0.4s ease, box-shadow 0.4s ease; animation: fadeUp 0.8s ease forwards; cursor: pointer; }
+    .tour:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 20px 45px rgba(0,0,0,0.15); }
+    .tour img { width: 100%; height: 180px; object-fit: cover; transition: transform 0.4s ease; }
+    .tour:hover img { transform: scale(1.1); }
+    .tour-content { padding: 20px; flex-grow: 1; }
+    .price { font-weight: bold; color: var(--green-main); margin: 10px 0; }
+    button { padding: 12px; border: none; border-radius: 12px; cursor: pointer; font-size: 1rem; background: var(--green-main); color: #fff; transition: all 0.3s ease; }
+    button:hover { background: var(--green-dark); transform: scale(1.05); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); align-items: center; justify-content: center; }
+    .modal-content { background: #fff; padding: 25px; border-radius: 18px; width: 100%; max-width: 400px; position: relative; animation: fadeUp 0.4s ease; }
+    .close-btn { position: absolute; top: 10px; right: 14px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #555; }
+    .close-btn:hover { color: var(--green-dark); }
+    input { width: 100%; padding: 10px; margin: 8px 0 15px; border-radius: 10px; border: 1px solid #ccc; }
+    .total { font-weight: bold; color: var(--green-dark); margin-bottom: 15px; }
+
+    footer { background: var(--green-dark); color: #e0f2f1; padding: 40px 20px; text-align: center; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">🌿 Green Travel</div>
+  <nav>
+    <a href="#about">Про нас</a>
+    <a href="#tours">Тури</a>
+    <a href="#benefits">Переваги</a>
+    <a href="#contacts">Контакти</a>
+  </nav>
+  <a class="call-btn" href="tel:+380991234567">+380 99 123 45 67</a>
+</header>
+<section class="hero">
+  <h1>Відкривай Європу по-новому</h1>
+  <p>Сучасні та відповідальні подорожі. Комфорт, природа та чесні ціни.</p>
+  <a href="#tours">Обрати подорож</a>
+</section>
+<main>
+  <section id="about">
+    <h2>Чому Green Travel?</h2>
+    <p style="max-width:800px;margin:0 auto;text-align:center;">Ми — туристична агенція, яка спеціалізується на сучасних та відповідальних подорожах Європою. Ми поєднуємо комфорт, чесні ціни та любов до природи.</p>
+    <div class="features" style="margin-top:40px;">
+      <div class="feature">🌿 Еко-френдлі</div>
+      <div class="feature">💶 Чесна ціна</div>
+      <div class="feature">🧘 Без стресу</div>
+    </div>
+  </section>
+
+  <section id="tours">
+    <h2>Наші тури</h2>
+    <div class="tours">
+      <div class="tour" onclick="showTourDetails('Альпійський вікенд','Австрія','500 €','3 дні', 'Гори, природа, відпочинок')">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=80">
+        <div class="tour-content"><h3>Альпійський вікенд</h3><div class="price">500 €</div><button onclick="openModal('Альпійський вікенд',500);event.stopPropagation();">Забронювати</button></div>
+      </div>
+      <div class="tour" onclick="showTourDetails('Фіорди та водоспади','Норвегія','750 €','5 днів','Фіорди, водоспади, природа')">
+        <img src="https://images.unsplash.com/photo-1500048993959-d6b5b7f5a1c5?auto=format&fit=crop&w=1000&q=80">
+        <div class="tour-content"><h3>Фіорди та водоспади</h3><div class="price">750 €</div><button onclick="openModal('Фіорди та водоспади',750);event.stopPropagation();">Забронювати</button></div>
+      </div>
+      <div class="tour" onclick="showTourDetails('Вело-тур тюльпанами','Нідерланди','600 €','4 дні','Тюльпанові поля, велосипеди, природа')">
+        <img src="https://images.unsplash.com/photo-1520975698519-59c35dbaef26?auto=format&fit=crop&w=1000&q=80">
+        <div class="tour-content"><h3>Вело-тур тюльпанами</h3><div class="price">600 €</div><button onclick="openModal('Вело-тур тюльпанами',600);event.stopPropagation();">Забронювати</button></div>
+      </div>
+      <div class="tour" onclick="showTourDetails('Магія Тоскани','Італія','700 €','5 днів','Виноградники, середньовічні міста, гастрономія')">
+        <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1000&q=80">
+        <div class="tour-content"><h3>Магія Тоскани</h3><div class="price">700 €</div><button onclick="openModal('Магія Тоскани',700);event.stopPropagation();">Забронювати</button></div>
+      </div>
+      <div class="tour" onclick="showTourDetails('Замки Баварії','Німеччина','650 €','4 дні','Середньовічні замки, пейзажі, історія')">
+        <img src="https://images.unsplash.com/photo-1505842465776-3d90f616310d?auto=format&fit=crop&w=1000&q=80">
+        <div class="tour-content"><h3>Замки Баварії</h3><div class="price">650 €</div><button onclick="openModal('Замки Баварії',650);event.stopPropagation();">Забронювати</button></div>
+      </div>
+      <div class="tour" onclick="showTourDetails('Карпатський релакс','Україна','400 €','3 дні','Гори, спокій, природа')">
+        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1000&q=80">
+        <div class="tour-content"><h3>Карпатський релакс</h3><div class="price">400 €</div><button onclick="openModal('Карпатський релакс',400);event.stopPropagation();">Забронювати</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <h2>Відгуки наших клієнтів</h2>
+    <div class="features">
+      <div class="feature"><img src="https://randomuser.me/api/portraits/women/44.jpg" style="width:70px;border-radius:50%;margin-bottom:10px;"><p>«Подорож до Тоскани була неймовірною! Все організовано ідеально.»</p><strong>Анна, Львів</strong></div>
+      <div class="feature"><img src="https://randomuser.me/api/portraits/men/32.jpg" style="width:70px;border-radius:50%;margin-bottom:10px;"><p>«Фіорди — це щось неймовірне. Green Travel — ви топ!»</p><strong>Олег, Київ</strong></div>
+      <div class="feature"><img src="https://randomuser.me/api/portraits/women/68.jpg" style="width:70px;border-radius:50%;margin-bottom:10px;"><p>«Карпати — справжній релакс. Дякую за тур без стресу.»</p><strong>Марія, Івано-Франківськ</strong></div>
+    </div>
+  </section>
+</main>
+
+<div class="modal" id="bookingModal">
+  <div class="modal-content" id="modalContent">
+    <button class="close-btn" onclick="closeModal()">×</button>
+    <h3 id="tourName"></h3>
+    <p id="tourDetails"></p>
+    <label>Дата початку</label>
+    <input type="date" id="dateFrom" />
+    <label>Дата завершення</label>
+    <input type="date" id="dateTo" />
+    <label>Кількість осіб</label>
+    <input type="number" id="people" min="1" value="1" />
+    <div class="total" id="totalPrice"></div>
+    <button onclick="calculate()">Підтвердити бронювання</button>
+  </div>
+</div>
+
+<footer id="contacts">© 2025 Green Travel | info@greentravel.ua</footer>
+
+<script>
+  let currentPrice = 0;
+  function openModal(name, price) {
+    document.getElementById('bookingModal').style.display = 'flex';
+    document.getElementById('tourName').textContent = name;
+    currentPrice = price;
+    calculate();
+  }
+  function closeModal() { document.getElementById('bookingModal').style.display = 'none'; }
+  function calculate() {
+    const people = document.getElementById('people').value || 1;
+    document.getElementById('totalPrice').textContent = 'Вартість: ' + (currentPrice * people) + ' €';
+  }
+  document.getElementById('bookingModal').addEventListener('click', function(e) { if(e.target === this) closeModal(); });
+
+  function showTourDetails(name, country, price, duration, description) {
+    document.getElementById('bookingModal').style.display = 'flex';
+    document.getElementById('tourName').textContent = name + ' – ' + country + ' (' + duration + ')';
+    document.getElementById('tourDetails').textContent = description + ' | Ціна: ' + price;
+    currentPrice = parseInt(price);
+    calculate();
+  }
+</script>
+</body>
+</html>
